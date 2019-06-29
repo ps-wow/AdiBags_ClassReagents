@@ -1,0 +1,8 @@
+## Interface: 11302
+## Title: AdiBags: |cFF69CCF0ClassReagents|r
+## Notes: Filter pet food in bags
+## Author: PrivateSniper
+## Version: 1.0.0
+## Dependencies: AdiBags
+
+main.lua
