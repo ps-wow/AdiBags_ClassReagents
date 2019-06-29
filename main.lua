@@ -15,17 +15,39 @@ end
 AdiBags_ClassReagents.ItemTables = {
   ['MAGE'] = {
     [17056] = true, -- Light Feather
+    [17031] = true, -- Rune of Teleportation
+    [17032] = true -- Rune of Portals
   },
   ['PRIEST'] = {
     [17056] = true, -- Light Feather
+    [17029] = true, -- Sacred Candle
+    [17028] = true -- Holy Candle
   },
-  ['WARLOCK'] = {},
-  ['ROGUE'] = {},
-  ['DRUID'] = {},
-  ['SHAMAN'] = {},
-  ['HUNTER'] = {},
-  ['PALADIN'] = {},
-  ['WARRIOR'] = {},
+  ['WARLOCK'] = {
+    [5565] = true, -- Infernal Stone
+    [16583] = true -- Demonic Figurine
+  },
+  ['DRUID'] = {
+    [17034] = true, -- Maple Seed
+    [17021] = true, -- Wild Berries
+    [17035] = true, -- Stranglethorn Seed
+    [17038] = true, -- Ironwood Seed
+    [17036] = true, -- Ashwood Seed
+    [17026] = true, -- Wild Thornroot
+    [17037] = true -- Hornbeam Seed
+  },
+  ['ROGUE'] = {
+    [8924] = true, -- Dust of Deterioration
+    [5173] = true,  -- Deathweed
+    [8923] = true -- Essence of Agony
+  },
+  ['SHAMAN'] = {
+    [17030] = true, -- Ankh
+  },
+  ['PALADIN'] = {
+    [21177] = true, -- Symbol of Kings
+    [17033] = true -- Symbol of Divinity
+  }
 }
 AddonTable.Modules = {}
 
@@ -43,7 +65,6 @@ function AdiBags_ClassReagents:DefaultFilter(slotData, module, petFoodFilter)
   local prefix = module.prefix
 
   local localisedClass, playerClass, _ = UnitClass('player')
-  --AdiBags_ClassReagents:Dump('playerClass', playerClass)
 
   local category = 'Class Reagents'
 
@@ -54,14 +75,11 @@ function AdiBags_ClassReagents:DefaultFilter(slotData, module, petFoodFilter)
       category = 'Class Reagents'
     end
 
-
     for id,_ in pairs(items) do
       if (tonumber(id) == slotData.itemId) then
         return category
       end
     end
-
-    AdiBags_ClassReagents:Dump('items', items)
   end
 end
 
